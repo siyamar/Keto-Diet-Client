@@ -8,7 +8,7 @@ const AddBlog = () => {
     return (
         <div className="max-w-7xl mx-auto">
         <Navbar></Navbar>
-      <div className=" md:mx-20 m-10  px-20">
+      <div className=" md:mx-20 mx-10 my-6  px-20">
         <h2 className="text-3xl font-extrabold text-center mb-6">
           Add Product
         </h2>
