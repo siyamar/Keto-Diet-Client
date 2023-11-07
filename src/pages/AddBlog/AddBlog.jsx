@@ -1,58 +1,44 @@
+import axios from 'axios';
 import Navbar from '../../shared/Navbar/Navbar';
 
-const AddBlog = () => {
-    const handleAddProduct= e =>{
-        e.preventDefault();
+const handleAddBlog= (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const title = form.title.value || 'Value Not Found';
+    const category = form.category.value || 'Value Not Found';
+    const shortDescription = form.shortDescription.value || 'Value Not Found';
+    const longDescription = form.longDescription.value || 'Value Not Found';
+    const imageUrl = form.imageUrl.value || 'Value Not Found';
 
-    }
+    const newPost = {title, category, shortDescription, longDescription, imageUrl}
+
+    axios.post ('http://localhost:5000/postBlogs', newPost)
+    .then(result=>{
+        console.log(result.data)
+    })
+}
+
+const AddBlog = () => {
+   
     return (
         <div className="max-w-7xl mx-auto">
         <Navbar></Navbar>
       <div className=" md:mx-20 mx-10 my-6  px-20">
         <h2 className="text-3xl font-extrabold text-center mb-6">
-          Add Product
+          Add Blog
         </h2>
-        <form onSubmit={handleAddProduct}>
-          {/* form name and quantity row */}
+        <form onSubmit={handleAddBlog}>
+          {/* form title and category row */}
           <div className="md:flex mb-4">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text">Car Name</span>
+                <span className="label-text">Title</span>
               </label>
               <label className="input-group">
                 <input
-                  name="name"
+                  name="title"
                   type="text"
-                  placeholder="Car Name"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div className="form-control md:w-1/2 ml-4">
-              <label className="label">
-                <span className="label-text">Brand Name</span>
-              </label>
-              <label className="input-group">
-                <input
-                  name="brandName"
-                  type="text"
-                  placeholder="Brand Name"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-          </div>
-          {/* form supplier and taste row */}
-          <div className="md:flex mb-4">
-            <div className="form-control md:w-1/2">
-              <label className="label">
-                <span className="label-text">Price</span>
-              </label>
-              <label className="input-group">
-                <input
-                  name="price"
-                  type="text"
-                  placeholder="Price"
+                  placeholder="title"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -61,40 +47,40 @@ const AddBlog = () => {
               <label className="label">
                 <span className="label-text">Category</span>
               </label>
-              <label className="input-group">
-                <input
-                  name="category"
-                  type="text"
-                  placeholder="Category"
-                  className="input input-bordered w-full"
-                />
+              <label className="input-group ">
+                <select className='w-full' name="category" id="">
+                    <option value="Keto Recipes">Keto Recipes</option>
+                    <option value="Meal Planning">Meal Planning</option>
+                    <option value="Keto Tips and Tricks">Keto Tips and Tricks</option>
+                    <option value="Keto and Exercise">Keto and Exercise</option>
+                </select>
               </label>
             </div>
           </div>
-          {/* form category and details row */}
+          {/* form short and long descript row */}
           <div className="md:flex mb-4">
             <div className="form-control md:w-1/2">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text">Short Description</span>
               </label>
               <label className="input-group">
                 <input
-                  name="photo"
+                  name="shortDescription"
                   type="text"
-                  placeholder="Photo URL"
+                  placeholder="short description"
                   className="input input-bordered w-full"
                 />
               </label>
             </div>
             <div className="form-control md:w-1/2 ml-4">
               <label className="label">
-                <span className="label-text">Rating</span>
+                <span className="label-text">Long Description</span>
               </label>
               <label className="input-group">
                 <input
-                  name="rating"
+                  name="longDescription"
                   type="text"
-                  placeholder="Rating"
+                  placeholder="long description"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -104,13 +90,13 @@ const AddBlog = () => {
           <div className="mb-4">
             <div className="form-control :w-full">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text">Image Url</span>
               </label>
               <label className="input-group">
                 <input
-                  name="description"
+                  name="imageUrl"
                   type="text"
-                  placeholder="Short description"
+                  placeholder="image url"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -118,7 +104,7 @@ const AddBlog = () => {
           </div>
           <input
             type="submit"
-            value="Add Product"
+            value="Add Blog"
             className="btn btn-block bg-black text-white hover:bg-black "
           />
         </form>
