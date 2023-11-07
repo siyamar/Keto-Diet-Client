@@ -1,10 +1,13 @@
+import Banner from "./Banner/Banner";
 import Navbar from "../../shared/Navbar/Navbar"
+import RecentPost from "./RecentPosts/RecentPost";
 
 const Home = () => {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <Navbar></Navbar>
-            <h2>This is home</h2>
+            <Banner></Banner>
+            <RecentPost></RecentPost>
         </div>
     );
 };

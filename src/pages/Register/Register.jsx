@@ -57,7 +57,12 @@ const Register = () => {
       });
   };
   const handleGoogleSignUp = () => {
-    signInWithGoogle().then().catch();
+    signInWithGoogle()
+    .then((result)=>{
+      console.log(result.user)
+      navigate("/");
+    })
+    .catch();
 
   };
   return (

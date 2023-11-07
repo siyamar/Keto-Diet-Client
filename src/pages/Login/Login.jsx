@@ -34,8 +34,13 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle().then().catch();
-
+    signInWithGoogle()
+    .then((result)=>{
+      console.log(result.user);
+      navigate(location?.state ? location.state : "/");
+    })
+    .catch();
+    
   };
   return (
     <div className="max-w-6xl mx-auto">

@@ -39,18 +39,18 @@ const Navbar = () => {
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
-      {user && (
-        <>
-          <li>
-            <NavLink to={"/myCart"}>My Cart</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/addBrand"}>Add Brand</NavLink>
-          </li>
-        </>
-      )}
+     
       <li>
-        <NavLink to={"/addProduct"}>Add Product</NavLink>
+            <NavLink to={"/addBlog"}>Add Blog</NavLink>
+      </li>
+       <li>
+            <NavLink to={"/allBlogs"}>All Blogs</NavLink>
+       </li>
+       <li>
+        <NavLink to={"/featuredBlogs"}>Featured Blogs</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/wishlist"}>Wishlist</NavLink>
       </li>
     {
         !user &&
@@ -107,8 +107,9 @@ const Navbar = () => {
           <div className="w-10 rounded-full">
            {
             user &&
-              <img src={user.photoURL} alt="" />
-            
+             <>
+            <img src={user.displayName} alt="" />
+            </>
            }
           </div>
         </label>
