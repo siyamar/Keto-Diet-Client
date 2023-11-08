@@ -104,18 +104,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
+          <div className="w-10 rounded-full mr-1">
            {
             user &&
              <>
-            <img src={user.displayName} alt="" />
+            <img src={user.photoURL} alt="" />
             </>
            }
           </div>
         </label>
         {user ? (
          <>
-         <span className="ml-1 text-[12px]">{user.displayName} {user.email} </span>
           <button onClick={handleSignOut} className="btn">
             Sign Out
           </button>

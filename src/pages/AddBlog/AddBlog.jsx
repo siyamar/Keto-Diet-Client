@@ -1,25 +1,32 @@
 import axios from 'axios';
 import Navbar from '../../shared/Navbar/Navbar';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
-const handleAddBlog= (event) =>{
-    event.preventDefault();
-    const form = event.target;
-    const title = form.title.value || 'Value Not Found';
-    const category = form.category.value || 'Value Not Found';
-    const shortDescription = form.shortDescription.value || 'Value Not Found';
-    const longDescription = form.longDescription.value || 'Value Not Found';
-    const imageUrl = form.imageUrl.value || 'Value Not Found';
-
-    const newPost = {title, category, shortDescription, longDescription, imageUrl}
-
-    axios.post ('http://localhost:5000/postBlogs', newPost)
-    .then(result=>{
-        console.log(result.data)
-    })
-}
 
 const AddBlog = () => {
-   
+  const { user} = useContext(AuthContext);
+  const authorEmail = user.email;
+
+  const handleAddBlog= (event) =>{
+  
+      event.preventDefault();
+      const form = event.target;
+      const title = form.title.value || 'Value Not Found';
+      const category = form.category.value || 'Value Not Found';
+      const shortDescription = form.shortDescription.value || 'Value Not Found';
+      const longDescription = form.longDescription.value || 'Value Not Found';
+      const imageUrl = form.imageUrl.value || 'Value Not Found';
+  
+      const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail}
+  
+      axios.post ('http://localhost:5000/postBlogs', newPost)
+      .then(result=>{
+          console.log(result.data)
+      })
+  }
+  
+
     return (
         <div className="max-w-7xl mx-auto">
         <Navbar></Navbar>
