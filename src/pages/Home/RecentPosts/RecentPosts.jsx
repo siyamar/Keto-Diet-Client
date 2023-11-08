@@ -16,12 +16,15 @@ const RecentPosts = () => {
 
     return (
         <div>
+            <h2>Recent Posts.</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
             {
                 recentPosts.map(recentPost => <RecentPost 
-                    recentPost={recentPost}J
+                    recentPost={recentPost}
                     key={recentPost._id}
                     ></RecentPost>)
             }
+        </div>
         </div>
     );
 };

@@ -5,6 +5,7 @@ import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddBlog from "../pages/AddBlog/AddBlog";
+import BlogDetails from "../components/BlogDetails/BlogDetails";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         {
             path:'/register',
             element: <Register></Register>
+        },
+        {
+            path:'/blogDetails',
+            element: <BlogDetails></BlogDetails>,
+            loader: ()=> fetch('')
         },
       ]
     },

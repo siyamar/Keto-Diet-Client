@@ -1,24 +1,32 @@
-import { Card } from "flowbite-react";
+import { Button, Card } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const RecentPost = ({recentPost}) => {
-    const {title, shortDescription,category, imageUrl} = recentPost;
+    const {_id, title, shortDescription,category, imageUrl} = recentPost;
     return (
         <div>
-            <h2>Recent Posts.</h2>
             <Card
       className="max-w-sm"
       imgAlt="Meaningful alt text for an image that is not purely decorative"
       imgSrc={imageUrl}
     >
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
         {category}
       </h5>
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
         {title}
       </h5>
       <p className="font-normal text-gray-700 dark:text-gray-400">
         {shortDescription}
       </p>
+      <div className="flex gap-2">
+      <Link to={`/blogDetails/${_id}`}>     
+      <Button size="lg" gradientDuoTone="pinkToOrange">Details</Button>
+      </Link>
+      <Button size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
+      Add to Wishlist
+      </Button>
+      </div>
     </Card>
         </div>
     );

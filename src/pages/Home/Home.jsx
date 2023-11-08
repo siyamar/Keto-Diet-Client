@@ -1,13 +1,13 @@
 import Banner from "./Banner/Banner";
 import Navbar from "../../shared/Navbar/Navbar"
-import RecentPost from "./RecentPosts/RecentPost";
+import RecentPosts from "./RecentPosts/RecentPosts";
 
 const Home = () => {
     return (
         <div className="max-w-7xl mx-auto">
             <Navbar></Navbar>
             <Banner></Banner>
-            <RecentPost></RecentPost>
+            <RecentPosts></RecentPosts>
         </div>
     );
 };
