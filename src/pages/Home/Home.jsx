@@ -4,6 +4,7 @@ import RecentPost from "./RecentPosts/RecentPost";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import Footer from "../../shared/Footer/Footer";
+import NewsLetter from "./NewsLetter/NewsLetter";
 
 const Home = () => {
   // const recentPosts = useLoaderData();
@@ -27,7 +28,8 @@ const Home = () => {
           ))}
         </div>
       </div>
-      {/* <Footer></Footer> */}
+      <NewsLetter></NewsLetter>
+      <Footer></Footer>
       
     </div>
   );
