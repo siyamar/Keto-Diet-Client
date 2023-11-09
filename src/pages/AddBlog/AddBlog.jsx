@@ -3,6 +3,7 @@ import Navbar from '../../shared/Navbar/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import Footer from '../../shared/Footer/Footer';
 
 
 const AddBlog = () => {

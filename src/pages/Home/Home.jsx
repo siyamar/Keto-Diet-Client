@@ -3,6 +3,7 @@ import Navbar from "../../shared/Navbar/Navbar";
 import RecentPost from "./RecentPosts/RecentPost";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
+import Footer from "../../shared/Footer/Footer";
 
 const Home = () => {
   // const recentPosts = useLoaderData();
@@ -16,8 +17,7 @@ const Home = () => {
     <div className="max-w-7xl mx-auto">
       <Navbar></Navbar>
       <Banner></Banner>
-      <div>
-        <h2>Recent Posts.</h2>
+      <div className="my-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
           {recentPosts.map((recentPost) => (
             <RecentPost
@@ -27,6 +27,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      {/* <Footer></Footer> */}
       
     </div>
   );

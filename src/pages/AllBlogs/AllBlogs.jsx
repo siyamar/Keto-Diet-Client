@@ -2,6 +2,7 @@ import Navbar from "../../shared/Navbar/Navbar";
 import { useLoaderData } from "react-router-dom";
 import RecentPost from "../Home/RecentPosts/RecentPost";
 import { useState } from "react";
+import Footer from "../../shared/Footer/Footer";
 
 const AllBlogs = () => {
   const allBlogs = useLoaderData();
@@ -45,6 +46,7 @@ const AllBlogs = () => {
           <RecentPost recentPost={blog} key={blog._id}></RecentPost>
         ))}
       </div>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

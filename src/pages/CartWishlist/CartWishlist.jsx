@@ -3,6 +3,7 @@ import Navbar from "../../shared/Navbar/Navbar";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
 import WishlistBlogsCart from "../../components/WishlistBlogs/WishlistBlogsCart";
+import Footer from "../../shared/Footer/Footer";
 
 const CartWishlist = () => {
     const wishlistBlogs = useLoaderData();
@@ -23,6 +24,7 @@ const CartWishlist = () => {
             ></WishlistBlogsCart>
           ))}
         </div>
+        {/* <Footer></Footer> */}
         </div>
     );
 };
