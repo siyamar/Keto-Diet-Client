@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../../shared/Navbar/Navbar";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -69,9 +69,11 @@ const BlogDetails = () => {
             <p className="text-xl">{shortDescription}</p>
             <p>{longDescription}</p>
             {canUpdate && (
+              <Link to={`/updateBlog/${_id}`}>
               <Button size="lg" gradientDuoTone="pinkToOrange">
                 Update Blog
               </Button>
+              </Link>
             )}
             {user ? (
               user.email === authorEmail ? (

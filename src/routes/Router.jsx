@@ -8,6 +8,7 @@ import AddBlog from "../pages/AddBlog/AddBlog";
 import BlogDetails from "../components/BlogDetails/BlogDetails";
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import CartWishlist from "../pages/CartWishlist/CartWishlist";
+import UpdatePosts from "../components/UpdatePosts/UpdatePosts";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
         {
             path:'/addBlog',
             element: <AddBlog></AddBlog>
+        },
+        {
+            path:'/updateBlog/:id',
+            element: <UpdatePosts></UpdatePosts>,
+            loader: ({params})=> fetch(`http://localhost:5000/postBlogs/${params.id}`)
+
         },
         {
             path:'/allBlogs',
