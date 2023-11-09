@@ -2,6 +2,7 @@ import axios from 'axios';
 import Navbar from '../../shared/Navbar/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const AddBlog = () => {
@@ -17,12 +18,19 @@ const AddBlog = () => {
       const shortDescription = form.shortDescription.value || 'Value Not Found';
       const longDescription = form.longDescription.value || 'Value Not Found';
       const imageUrl = form.imageUrl.value || 'Value Not Found';
+      const currentDate = new Date();
   
-      const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail}
+      const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate}
   
       axios.post ('http://localhost:5000/postBlogs', newPost)
       .then(result=>{
           console.log(result.data)
+          Swal.fire({
+            title: "Success!",
+            text: "Blog Added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
       })
   }
   
