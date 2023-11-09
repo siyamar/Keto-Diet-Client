@@ -1,8 +1,29 @@
+import axios from "axios";
 import { Button, Card } from "flowbite-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const RecentPost = ({recentPost}) => {
+  const {user} = useContext(AuthContext);
+  const userEmail = user?.email;
     const {_id, title, shortDescription,category, imageUrl} = recentPost;
+    const addBlogWishlist = {userEmail, _id, title, shortDescription,category, imageUrl}
+
+    const handleAddWishlist= ()=>{
+      axios.post('http://localhost:5000/wishlists', addBlogWishlist)
+      .then(result=>{
+        console.log(result.data)
+        Swal.fire({
+                  title: 'Success!',
+                  text: 'Added Blog in Wishlists Successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Close'
+                })
+      })
+   
+  }
     return (
         <div>
             <Card
@@ -23,7 +44,7 @@ const RecentPost = ({recentPost}) => {
       <Link to={`/blogDetails/${_id}`}>     
       <Button size="lg" gradientDuoTone="pinkToOrange">Details</Button>
       </Link>
-      <Button size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
+      <Button onClick={handleAddWishlist} size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
       Add to Wishlist
       </Button>
       </div>
