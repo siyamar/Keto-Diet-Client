@@ -1,29 +1,73 @@
-import axios from "axios";
 import { Button, Card } from "flowbite-react";
-import { useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-const WishlistBlogsCart = ({wishlistBlog}) => {
-    const {user} = useContext(AuthContext);
-    const userEmail = user?.email;
-      const {_id, title, shortDescription,category, imageUrl} = wishlistBlog;
-      const addBlogWishlist = {userEmail, _id, title, shortDescription,category, imageUrl}
+const WishlistBlogsCart = ({wishlistBlog, wishlistBlogs}) => {
+    const [blogs, setBlogs] = useState(wishlistBlogs)
+    const {_id, title, shortDescription,category, imageUrl} = wishlistBlog;
+    console.log(blogs)
+    //   const addBlogWishlist = {userEmail, _id, title, shortDescription,category, imageUrl}
   
-      const handleAddWishlist= ()=>{
-        axios.post('http://localhost:5000/wishlists', addBlogWishlist)
-        .then(result=>{
-          console.log(result.data)
-          Swal.fire({
-                    title: 'Success!',
-                    text: 'Added Blog in Wishlists Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                  })
+    const handleDeleteWishlist=(_id)=>{
+        console.log(_id);
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be delete this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+           
+            fetch(`http://localhost:5000/wishlists/${_id}`, {
+              method: 'delete',
+    
+            })
+            .then(res=> res.json())
+            .then(data=> {
+              console.log(data)
+              if(data.deletedCount>0){
+                Swal.fire(
+                  'Deleted!',
+                  'Deleted Successfully.',
+                  'success'
+                )
+                const remaining = blogs.filter((blog)=> blog?._id !== _id);
+                setBlogs(remaining);
+              }
+            })
+          }
         })
+          }
+    //   const handleDeleteWishlist= (_id)=>{
+    //     fetch(`http://localhost:5000/wishlists/${_id}`,{
+    //         method: 'detete'
+    //     })
+    //     .then(res=> res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //         Swal.fire({
+    //             title: 'Success!',
+    //             text: 'Deleted Successfully',
+    //             icon: 'success',
+    //             confirmButtonText: 'Close'
+    //           })
+    //     })
+    //     // axios.post('http://localhost:5000/wishlists', addBlogWishlist)
+    //     // .then(result=>{
+    //     //   console.log(result.data)
+    //     //   Swal.fire({
+    //     //             title: 'Success!',
+    //     //             text: 'Added Blog in Wishlists Successfully',
+    //     //             icon: 'success',
+    //     //             confirmButtonText: 'Close'
+    //     //           })
+    //     // })
      
-    }
+    // }
       return (
           <div>
               <Card
@@ -44,8 +88,8 @@ const WishlistBlogsCart = ({wishlistBlog}) => {
         <Link to={`/blogDetails/${_id}`}>     
         <Button size="lg" gradientDuoTone="pinkToOrange">Details</Button>
         </Link>
-        <Button onClick={handleAddWishlist} size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
-        Add to Wishlist
+        <Button onClick={()=>handleDeleteWishlist(_id)} size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
+        Delete
         </Button>
         </div>
       </Card>

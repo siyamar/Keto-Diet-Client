@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../../shared/Navbar/Navbar";
 import { AuthContext } from "../../providers/AuthProvider";
-import RecentPost from "../Home/RecentPosts/RecentPost";
 import { useContext } from "react";
 import WishlistBlogsCart from "../../components/WishlistBlogs/WishlistBlogsCart";
 
@@ -18,6 +17,7 @@ const CartWishlist = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
           {filteredWishlistBlogs.map((wishlistBlog) => (
             <WishlistBlogsCart
+            wishlistBlogs={wishlistBlogs}
             wishlistBlog={wishlistBlog}
               key={wishlistBlog._id}
             ></WishlistBlogsCart>

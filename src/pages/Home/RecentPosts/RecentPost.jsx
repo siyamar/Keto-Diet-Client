@@ -9,7 +9,7 @@ const RecentPost = ({recentPost}) => {
   const {user} = useContext(AuthContext);
   const userEmail = user?.email;
     const {_id, title, shortDescription,category, imageUrl} = recentPost;
-    const addBlogWishlist = {userEmail, _id, title, shortDescription,category, imageUrl}
+    const addBlogWishlist = {userEmail, title, shortDescription,category, imageUrl}
 
     const handleAddWishlist= ()=>{
       axios.post('http://localhost:5000/wishlists', addBlogWishlist)
