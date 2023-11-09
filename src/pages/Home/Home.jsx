@@ -6,6 +6,7 @@ import { useState } from "react";
 import Footer from "../../shared/Footer/Footer";
 import NewsLetter from "./NewsLetter/NewsLetter";
 import AboutUs from "./AboutUs/AboutUs";
+import Gallery from "./Gallery/Gallery";
 
 const Home = () => {
   // const recentPosts = useLoaderData();
@@ -30,6 +31,7 @@ const Home = () => {
         </div>
       </div>
       <AboutUs></AboutUs>
+      <Gallery></Gallery>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
       
