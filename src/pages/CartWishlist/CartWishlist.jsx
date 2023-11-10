@@ -14,8 +14,7 @@ const CartWishlist = () => {
     return (
         <div className="max-w-7xl mx-auto">
             <Navbar></Navbar>
-            <h2>Htjix is</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
+            <div className="my-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
           {filteredWishlistBlogs.map((wishlistBlog) => (
             <WishlistBlogsCart
             wishlistBlogs={wishlistBlogs}
@@ -24,7 +23,7 @@ const CartWishlist = () => {
             ></WishlistBlogsCart>
           ))}
         </div>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
         </div>
     );
 };

@@ -23,7 +23,7 @@ const AddBlog = () => {
   
       const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate}
   
-      axios.post ('http://localhost:5000/postBlogs', newPost)
+      axios.post (' http://localhost:5000/postBlogs', newPost)
       .then(result=>{
           console.log(result.data)
           Swal.fire({

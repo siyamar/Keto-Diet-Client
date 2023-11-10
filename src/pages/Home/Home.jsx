@@ -21,6 +21,7 @@ const Home = () => {
       <Navbar></Navbar>
       <Banner></Banner>
       <div className="my-6">
+        <h3 className="text-4xl font-bold mb-6 text-center">Recent Post</h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
           {recentPosts.map((recentPost) => (
             <RecentPost

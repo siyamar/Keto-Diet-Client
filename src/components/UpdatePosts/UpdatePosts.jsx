@@ -24,7 +24,7 @@ const UpdatePosts = () => {
   
       const updateBlog = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate}
 
-      fetch(`http://localhost:5000/postBlogs/${_id}`,{
+      fetch(` http://localhost:5000/postBlogs/${_id}`,{
                 method: "put",
                 headers: {
                   'content-type': 'application/json'
@@ -43,7 +43,7 @@ const UpdatePosts = () => {
         
               })
   
-    //   axios.post ('http://localhost:5000/postBlogs', newPost)
+    //   axios.post (' http://localhost:5000/postBlogs', newPost)
     //   .then(result=>{
     //       console.log(result.data)
     //       Swal.fire({

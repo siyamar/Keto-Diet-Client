@@ -22,7 +22,7 @@ const WishlistBlogsCart = ({wishlistBlog, wishlistBlogs}) => {
         }).then((result) => {
           if (result.isConfirmed) {
            
-            fetch(`http://localhost:5000/wishlists/${_id}`, {
+            fetch(` http://localhost:5000/wishlists/${_id}`, {
               method: 'delete',
     
             })
@@ -43,7 +43,7 @@ const WishlistBlogsCart = ({wishlistBlog, wishlistBlogs}) => {
         })
           }
     //   const handleDeleteWishlist= (_id)=>{
-    //     fetch(`http://localhost:5000/wishlists/${_id}`,{
+    //     fetch(` http://localhost:5000/wishlists/${_id}`,{
     //         method: 'detete'
     //     })
     //     .then(res=> res.json())
@@ -56,7 +56,7 @@ const WishlistBlogsCart = ({wishlistBlog, wishlistBlogs}) => {
     //             confirmButtonText: 'Close'
     //           })
     //     })
-    //     // axios.post('http://localhost:5000/wishlists', addBlogWishlist)
+    //     // axios.post(' http://localhost:5000/wishlists', addBlogWishlist)
     //     // .then(result=>{
     //     //   console.log(result.data)
     //     //   Swal.fire({

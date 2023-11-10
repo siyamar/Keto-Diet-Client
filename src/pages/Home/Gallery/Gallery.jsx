@@ -2,7 +2,7 @@
 const Gallery = () => {
   return (
     <div>
-        <h2 className="text-4xl font-bold my-4">Gallery</h2>
+        <h2 className="text-4xl font-bold my-6 text-center">Gallery</h2>
     <div className="grid grid-cols-4 gap-5 mb-5">
         {/* card 1 */}
       <div className="hover:card rounded-lg w-full image-full">
@@ -86,3 +86,5 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+
