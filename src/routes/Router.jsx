@@ -10,7 +10,7 @@ import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import CartWishlist from "../pages/CartWishlist/CartWishlist";
 import UpdatePosts from "../components/UpdatePosts/UpdatePosts";
 import FeaturedBlogs from "../pages/FeaturedBlogs/FeaturedBlogs";
-import ReactDataTable from "../components/C&D/ReactDataTable";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -26,11 +26,11 @@ const router = createBrowserRouter([
         },
         {
             path:'/addBlog',
-            element: <AddBlog></AddBlog>
+            element: <PrivateRoute><AddBlog></AddBlog></PrivateRoute> 
         },
         {
             path:'/updateBlog/:id',
-            element: <UpdatePosts></UpdatePosts>,
+            element: <PrivateRoute><UpdatePosts></UpdatePosts></PrivateRoute>,
             loader: ({params})=> fetch(`http://localhost:5000/postBlogs/${params.id}`)
 
         },
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/wishlist',
-            element: <CartWishlist></CartWishlist>,
+            element: <PrivateRoute><CartWishlist></CartWishlist></PrivateRoute>,
             loader: ()=> fetch('http://localhost:5000/wishlists')
 
         },
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         // },
         {
             path:'/blogDetails/:id',
-            element: <BlogDetails></BlogDetails>,
+            element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
             loader: ({params})=> fetch(`http://localhost:5000/postBlogs/${params.id}`)
         },
       ]

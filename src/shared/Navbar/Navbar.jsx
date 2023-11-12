@@ -40,18 +40,24 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
      
-      <li>
-            <NavLink to={"/addBlog"}>Add Blog</NavLink>
-      </li>
+      {
+        user &&
+        <li>
+              <NavLink to={"/addBlog"}>Add Blog</NavLink>
+        </li>
+      }
        <li>
             <NavLink to={"/allBlogs"}>All Blogs</NavLink>
        </li>
        <li>
         <NavLink to={"/featuredBlogs"}>Featured Blogs</NavLink>
       </li>
+      {
+        user &&
       <li>
         <NavLink to={"/wishlist"}>Wishlist</NavLink>
       </li>
+      }
     {
         !user &&
         <>

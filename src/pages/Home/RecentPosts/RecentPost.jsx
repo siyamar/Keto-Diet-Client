@@ -44,7 +44,13 @@ const RecentPost = ({recentPost}) => {
       <Link to={`/blogDetails/${_id}`}>     
       <Button size="lg" gradientDuoTone="pinkToOrange">Details</Button>
       </Link>
-      <Button onClick={handleAddWishlist} size="lg" outline gradientDuoTone="pinkToOrange" className="border-none">
+      <Button 
+      onClick={handleAddWishlist} 
+      size="lg" 
+      outline gradientDuoTone="pinkToOrange" 
+      className={`border-none`}
+      disabled={!userEmail}>
+      
       Add to Wishlist
       </Button>
       </div>
