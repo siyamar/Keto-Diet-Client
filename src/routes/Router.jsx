@@ -10,6 +10,7 @@ import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import CartWishlist from "../pages/CartWishlist/CartWishlist";
 import UpdatePosts from "../components/UpdatePosts/UpdatePosts";
 import FeaturedBlogs from "../pages/FeaturedBlogs/FeaturedBlogs";
+import ReactDataTable from "../components/C&D/ReactDataTable";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             path:'/register',
             element: <Register></Register>
         },
+        // {
+        //     path:'/reactDataTable',
+        //     element: <ReactDataTable></ReactDataTable>
+        // },
         {
             path:'/blogDetails/:id',
             element: <BlogDetails></BlogDetails>,

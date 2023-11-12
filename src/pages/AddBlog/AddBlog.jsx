@@ -3,8 +3,6 @@ import Navbar from '../../shared/Navbar/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import Footer from '../../shared/Footer/Footer';
-
 
 const AddBlog = () => {
   const { user} = useContext(AuthContext);
@@ -21,7 +19,7 @@ const AddBlog = () => {
       const imageUrl = form.imageUrl.value || 'Value Not Found';
       const currentDate = new Date();
   
-      const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate}
+      const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate, user}
   
       axios.post (' http://localhost:5000/postBlogs', newPost)
       .then(result=>{
@@ -125,7 +123,6 @@ const AddBlog = () => {
           />
         </form>
       </div>
-      {/* <Footer></Footer> */}
     </div>
     );
 };
