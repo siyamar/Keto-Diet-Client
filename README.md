@@ -6,3 +6,7 @@
 --> There is a page called All Blogs where all blogs will be shown and from here clicking on the Wishlist button will save them to the Wishlist page with user information.
 --> Every blog in All Blogs page has a button called Details where clicked will show the details of the blog going to a page with details, And going there we can comment a lot about the blog. Everyone except the user who created this blog can go there and comment. And the user who created this block will not be able to go there and comment but when he goes there he will get an update button and there he will click on the update button and go to the update drop down page and from there he can update it.
 --> Finally from my website I tried to keep private and home page responsive and light mode and light mode.
+
+
+*** Project Name: Keto Journey
+*** Live site url: 

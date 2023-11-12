@@ -52,12 +52,11 @@ const Navbar = () => {
        <li>
         <NavLink to={"/featuredBlogs"}>Featured Blogs</NavLink>
       </li>
-      {
-        user &&
+      
       <li>
         <NavLink to={"/wishlist"}>Wishlist</NavLink>
       </li>
-      }
+      
     {
         !user &&
         <>
