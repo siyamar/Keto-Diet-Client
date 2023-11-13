@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import Navbar from "../shared/Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
@@ -15,17 +16,28 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
-    event.target.reset();
+    // event.target.reset();
      //reset error
      setLoginError('')
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const user = {email};
+
+        axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+        .then(res=>{
+          console.log(res.data)
+          if(res.data.success){
+            navigate(location?.state ? location.state : "/");
+          }
+        })
         
         //navigate after login
-        navigate(location?.state ? location.state : "/");
+        // 
+        // get access token
+
       })
       .catch((error) => {
         console.log(error);
@@ -38,6 +50,8 @@ const Login = () => {
     .then((result)=>{
       console.log(result.user);
       navigate(location?.state ? location.state : "/");
+      // get access token
+
     })
     .catch();
     
