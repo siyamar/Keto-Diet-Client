@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../components/Variants/variants";
 
 const RecentPost = ({recentPost}) => {
   const {user} = useContext(AuthContext);
@@ -31,6 +33,12 @@ const RecentPost = ({recentPost}) => {
       imgAlt="Meaningful alt text for an image that is not purely decorative"
       imgSrc={imageUrl}
     >
+      <motion.div
+      variants={fadeIn("left", 0.3)}
+      initial= "hidden"
+      whileInView={"show"}
+      viewport={{once: false, amount: 0.7}}
+      >
       <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
         {category}
       </h5>
@@ -40,7 +48,13 @@ const RecentPost = ({recentPost}) => {
       <p className="font-normal text-gray-700 dark:text-gray-400">
         {shortDescription}
       </p>
-      <div className="flex gap-2">
+      </motion.div>
+      <motion.div 
+      variants={fadeIn("up", 0.2)}
+      initial= "hidden"
+      whileInView={"show"}
+      viewport={{once: false, amount: 0.7}}
+      className="flex gap-2">
       <Link to={`/blogDetails/${_id}`}>     
       <Button size="lg" gradientDuoTone="pinkToOrange">Details</Button>
       </Link>
@@ -53,7 +67,7 @@ const RecentPost = ({recentPost}) => {
       
       Add to Wishlist
       </Button>
-      </div>
+      </motion.div>
     </Card>
         </div>
     );

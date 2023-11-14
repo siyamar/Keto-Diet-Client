@@ -1,4 +1,6 @@
 import { Button } from "flowbite-react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../../components/Variants/variants";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
@@ -14,6 +16,12 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-50"></div>
       <div className="">
         <div className="max-w-lg absolute top-36 left-20">
+          <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial= "hidden"
+          whileInView={"show"}
+          viewport={{once: false, amount: 0.7}}
+          >
           <h1
             className="mb-5 text-5xl font-bold text-white"
             data-aos="fade-left"
@@ -30,7 +38,13 @@ const Banner = () => {
           >
             Get into a low carb lifestyle with an <br /> easy-to-follow meal plan
           </p>
-          <div className="flex gap-2">
+          </motion.div>
+          <motion.div 
+            variants={fadeIn("left", 0.3)}
+            initial= "hidden"
+            whileInView={"show"}
+            viewport={{once: false, amount: 0.7}}
+          className="flex gap-2 mt-10">
           <Link to={"/login"}>
             {/* <button className="btn bg-pink-500 border-none text-white hover:bg-pink-600">
               Login
@@ -43,7 +57,7 @@ const Banner = () => {
           <Button size="xl" outline gradientDuoTone="pinkToOrange" className="border-none">
         Details
       </Button>
-          </div>
+          </motion.div>
           
         </div>
       </div>

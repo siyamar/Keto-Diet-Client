@@ -7,6 +7,7 @@ import Footer from "../../shared/Footer/Footer";
 import NewsLetter from "./NewsLetter/NewsLetter";
 import AboutUs from "./AboutUs/AboutUs";
 import Gallery from "./Gallery/Gallery";
+import { motion } from "framer-motion";
 
 const Home = () => {
   // const recentPosts = useLoaderData();
@@ -21,7 +22,11 @@ const Home = () => {
       <Navbar></Navbar>
       <Banner></Banner>
       <div className="my-6">
-        <h3 className="text-4xl font-bold mb-6 text-center">Recent Post</h3>
+        <motion.h3 
+         initial={{ opacity: 1 }}
+         animate={{ opacity: 0 }}
+         exit={{ opacity: 1 }}
+        className="text-4xl font-bold mb-6 text-center">Recent Post</motion.h3>
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6">
           {recentPosts.map((recentPost) => (
             <RecentPost
