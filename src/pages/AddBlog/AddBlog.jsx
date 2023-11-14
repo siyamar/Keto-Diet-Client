@@ -21,7 +21,7 @@ const AddBlog = () => {
   
       const newPost = {title, category, shortDescription, longDescription, imageUrl, authorEmail, currentDate, user}
   
-      axios.post (' http://localhost:5000/postBlogs', newPost)
+      axios.post (' https://keto-diet-server3.vercel.app/postBlogs', newPost)
       .then(result=>{
           console.log(result.data)
           Swal.fire({

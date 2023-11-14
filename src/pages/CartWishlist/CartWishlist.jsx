@@ -12,7 +12,7 @@ const CartWishlist = () => {
     // const filteredWishlistBlogs = wishlistBlogs.filter((blog) => user?.email == blog.userEmail);
     // const [filterBlogs, setBlogs] = useState(filteredWishlistBlogs)
 
-    const url= `http://localhost:5000/wishlists?userEmail=${user?.email}`;
+    const url= `https://keto-diet-server3.vercel.app/wishlists?userEmail=${user?.email}`;
     useEffect(()=>{
       axios.get(url, {withCredentials:true})
       .then(res=>{
@@ -33,7 +33,7 @@ const CartWishlist = () => {
       }).then((result) => {
         if (result.isConfirmed) {
          
-          fetch(` http://localhost:5000/wishlists/${_id}`, {
+          fetch(` https://keto-diet-server3.vercel.app/wishlists/${_id}`, {
             method: 'delete',
   
           })

@@ -24,7 +24,7 @@ const BlogDetails = () => {
   const newComment = { _id, email, photoURL, displayName, commentText };
 
   useEffect(() => {
-    axios.get(` http://localhost:5000/comments/${_id}`).then((result) => {
+    axios.get(` https://keto-diet-server3.vercel.app/comments/${_id}`).then((result) => {
       setComments(result.data);
     });
   }, [_id]);
@@ -46,7 +46,7 @@ const BlogDetails = () => {
       });
     } else {
       axios
-        .post(" http://localhost:5000/comments", newComment)
+        .post(" https://keto-diet-server3.vercel.app/comments", newComment)
         .then((result) => {
           console.log(result.data);
         });

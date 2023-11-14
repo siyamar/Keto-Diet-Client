@@ -14,7 +14,7 @@ const RecentPost = ({recentPost}) => {
     const addBlogWishlist = {userEmail, title, shortDescription,category, imageUrl}
 
     const handleAddWishlist= ()=>{
-      axios.post(' http://localhost:5000/wishlists', addBlogWishlist)
+      axios.post(' https://keto-diet-server3.vercel.app/wishlists', addBlogWishlist)
       .then(result=>{
         console.log(result.data)
         Swal.fire({
